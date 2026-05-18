@@ -1,4 +1,3 @@
-#  Enterprise QA Automation Framework using Playwright (JavaScript)
 
 ##  Application Under Test
 
