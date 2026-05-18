@@ -1,6 +1,6 @@
-# 🏆 Enterprise QA Automation Framework using Playwright (JavaScript)
+#  Enterprise QA Automation Framework using Playwright (JavaScript)
 
-## 🌐 Application Under Test
+##  Application Under Test
 
 👉 **nopCommerce Demo Store**  
 https://demo.nopcommerce.com  
