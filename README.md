@@ -60,7 +60,7 @@ This repository contains a scalable and maintainable test automation framework b
 2. More than 120 test cases implemented.
 3. Positive and negative scenarios covered.
 4. Edge case validations included.
-5. Cross-browser testing supported.
+5. Cross-browser testing supported. 
 
 🔹Project Structure
 
