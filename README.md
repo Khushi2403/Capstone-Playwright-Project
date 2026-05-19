@@ -1,10 +1,4 @@
-# Capstone Project Planning Document – Khushi Agrawal
-
-![Playwright](https://img.shields.io/badge/Playwright-Automation-brightgreen)
-![JavaScript](https://img.shields.io/badge/JavaScript-Node.js-yellow)
-![POM](https://img.shields.io/badge/Design-Page_Object_Model-blue)
-
----
+# Capstone Project Planning Document
 
 🔹**Application Under Test**
 
@@ -41,12 +35,17 @@ This repository contains a scalable and maintainable test automation framework b
 
 🔹**Test Strategy**
 
-1. Functional Testing
-2. UI Testing
-3. End-to-End Testing
-4. Regression Testing
-5. Negative and Edge Case Testing
-6. Cross-Browser Testing
+## 🔹 Test Strategy
+
+| Type of Testing        | Description |
+|------------------------|-------------|
+| Functional Testing     | Validates application features against requirements |
+| UI Testing             | Ensures UI elements are visible, aligned, and working |
+| End-to-End Testing     | Validates complete user workflows from start to finish |
+| Regression Testing     | Ensures existing functionality is not broken after changes |
+| Negative Testing       | Validates system behavior for invalid inputs and actions |
+| Edge Case Testing      | Covers boundary conditions and unusual scenarios |
+| Cross-Browser Testing  | Ensures compatibility across Chromium, Firefox, and WebKit |
 
 🔹**Key Features Covered**
 
@@ -121,16 +120,15 @@ Capstone-Playwright-Project
 🔹**Execution Steps**
 
 1. Install dependencies  
-```bash
-npm install
+- npm install
 
 2. Install Playwright browsers
-npx playwright install
+- npx playwright install
 
 3. Run the test suite
-npx playwright test
+- npx playwright test
 
 4. View the HTML report
-npx playwright show-report
----
+- npx playwright show-report
+
 
