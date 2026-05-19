@@ -1,5 +1,3 @@
-# Capstone Project Planning Document
-
 🔹**Application Under Test**
 
 nopCommerce Demo Store
@@ -34,8 +32,6 @@ This repository contains a scalable and maintainable test automation framework b
 
 
 🔹**Test Strategy**
-
-## 🔹 Test Strategy
 
 | Type of Testing        | Description |
 |------------------------|-------------|
