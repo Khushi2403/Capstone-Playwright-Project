@@ -114,12 +114,18 @@ Capstone-Playwright-Project
 ```
 
 🔹**Execution Steps**
-| Step No. | Action Description          | Command                      |
-| -------- | --------------------------- | ---------------------------- |
-| 1        | Install dependencies        | `npm install`                |
-| 2        | Install Playwright browsers | `npx playwright install`     |
-| 3        | Run test suite              | `npx playwright test`        |
-| 4        | View HTML report            | `npx playwright show-report` |
+
+| Category             | Purpose                        | Command                                            |
+| -------------------- | ------------------------------ | -------------------------------------------------- |
+| Setup Project        | Initialize Playwright project  | `npm init playwright@latest`                       |
+| Install Dependencies | Install project packages       | `npm install`                                      |
+| Install Browsers     | Install Playwright browsers    | `npx playwright install`                           |
+| Run All Tests        | Execute full test suite        | `npx playwright test`                              |
+| UI Mode              | Run tests in interactive UI    | `npx playwright test --ui`                         |
+| Headed Mode          | Run tests with browser visible | `npx playwright test --headed`                     |
+| Run Specific File    | Execute single test file       | `npx playwright test tests/authentication.spec.js` |
+| HTML Report          | View execution report          | `npx playwright show-report`                       |
+
 
 
 
