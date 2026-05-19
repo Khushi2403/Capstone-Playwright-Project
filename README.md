@@ -63,11 +63,11 @@ This repository contains a scalable and maintainable test automation framework b
 5. Cross-browser testing supported. 
 
 🔹Project Structure
-
+```
 Capstone-Playwright-Project
 │
 ├── pages
-│   ├── LoginPage.js
+│   ├── LoginPage.js  
 │   ├── RegisterPage.js
 │   ├── HomePage.js
 │   ├── ProductPage.js
@@ -92,6 +92,7 @@ Capstone-Playwright-Project
 ├── playwright.config.js
 ├── package.json
 └── README.md
+```
 
 🔹Execution Steps
 
@@ -105,4 +106,4 @@ npx playwright install
 npx playwright test
 
 4. View the HTML report
-npx playwright show-report
+npx playwright show-report 
