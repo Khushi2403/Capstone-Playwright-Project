@@ -97,13 +97,13 @@ Capstone-Playwright-Project
 🔹**Execution Steps**
 
 1. Install dependencies
-npm install
+- npm install
 
 2. Install Playwright browsers
-npx playwright install
+- npx playwright install
 
 3. Run the test suite
-npx playwright test
+- npx playwright test
 
 4. View the HTML report
-npx playwright show-report 
+- npx playwright show-report 
