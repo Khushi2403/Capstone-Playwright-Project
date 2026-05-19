@@ -114,17 +114,12 @@ Capstone-Playwright-Project
 ```
 
 🔹**Execution Steps**
+| Step No. | Action Description          | Command                      |
+| -------- | --------------------------- | ---------------------------- |
+| 1        | Install dependencies        | `npm install`                |
+| 2        | Install Playwright browsers | `npx playwright install`     |
+| 3        | Run test suite              | `npx playwright test`        |
+| 4        | View HTML report            | `npx playwright show-report` |
 
-1. Install dependencies  
-- npm install
-
-2. Install Playwright browsers
-- npx playwright install
-
-3. Run the test suite
-- npx playwright test
-
-4. View the HTML report
-- npx playwright show-report
 
 
