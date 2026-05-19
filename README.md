@@ -1,22 +1,22 @@
-🔹Application Under Test
+🔹**Application Under Test**
 
 nopCommerce Demo Store
 https://demo.nopcommerce.com
 
 This is a public e-commerce demo web application designed for end-to-end automation testing. It supports workflows such as authentication, product browsing, cart operations, checkout, order history, user profile management, and contact form interactions.
 
-🔹Project Overview
+🔹**Project Overview**
 
 This repository contains a scalable and maintainable test automation framework built using Playwright with JavaScript (Node.js). The framework follows the Page Object Model design pattern and simulates real-world QA automation practices with proper structure and modularity.
 
-🔹Project Objectives
+🔹**Project Objectives**
 
 1. Simulate real-world end-to-end QA scenarios.
 2. Implement a robust Page Object Model architecture.
 3. Improve test reliability and maintainability.
 4. Achieve high coverage of business-critical functionalities.
 
-🔹Tools and Technologies
+🔹**Tools and Technologies**
 
 
 | Category        | Technology                      |
@@ -31,7 +31,7 @@ This repository contains a scalable and maintainable test automation framework b
 | CI/CD           | GitHub Actions (optional)       |
 
 
-🔹Test Strategy
+🔹**Test Strategy**
 
 1. Functional Testing
 2. UI Testing
@@ -40,7 +40,7 @@ This repository contains a scalable and maintainable test automation framework b
 5. Negative and Edge Case Testing
 6. Cross-Browser Testing
 
-🔹Key Features Covered
+🔹**Key Features Covered**
 
 | Module         | Functional Areas Covered  | Example Validations                                         |
 | -------------- | ------------------------- | ----------------------------------------------------------- |
@@ -54,7 +54,7 @@ This repository contains a scalable and maintainable test automation framework b
 | Contact        | Contact form              | Successful submission and validation errors                 |
 
 
-🔹Test Coverage Summary
+🔹**Test Coverage Summary**
 
 1. Eight or more business modules automated.
 2. More than 120 test cases implemented.
@@ -62,7 +62,7 @@ This repository contains a scalable and maintainable test automation framework b
 4. Edge case validations included.
 5. Cross-browser testing supported. 
 
-🔹Project Structure
+🔹**Project Structure**
 ```
 Capstone-Playwright-Project
 │
@@ -94,7 +94,7 @@ Capstone-Playwright-Project
 └── README.md
 ```
 
-🔹Execution Steps
+🔹**Execution Steps**
 
 1. Install dependencies
 npm install
