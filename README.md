@@ -1,132 +1,99 @@
+🔹Application Under Test
 
-##  Application Under Test
+nopCommerce Demo Store
+https://demo.nopcommerce.com
 
-👉 **nopCommerce Demo Store**  
-https://demo.nopcommerce.com  
+This is a public e-commerce demo web application designed for end-to-end automation testing. It supports workflows such as authentication, product browsing, cart operations, checkout, order history, user profile management, and contact form interactions.
 
-This is a sample e-commerce web application used for automation testing practice.
+🔹Project Overview
 
-It supports complete end-to-end business workflows such as:
+This repository contains a scalable and maintainable test automation framework built using Playwright with JavaScript (Node.js). The framework follows the Page Object Model design pattern and simulates real-world QA automation practices with proper structure and modularity.
 
-- User authentication (Login/Logout)
-- Product browsing and search
-- Shopping cart operations
-- Checkout and order placement
-- Order history management
+🔹Project Objectives
 
+1. Simulate real-world end-to-end QA scenarios.
+2. Implement a robust Page Object Model architecture.
+3. Improve test reliability and maintainability.
+4. Achieve high coverage of business-critical functionalities.
 
-
-## 📌 Project Overview
-
-This project is an **Enterprise-Level Test Automation Framework** built using **Playwright with JavaScript (Node.js)**.
-
-It simulates real-world QA automation workflows by testing an e-commerce application using a **scalable, modular, and maintainable automation framework** based on industry best practices.
-
-The framework follows the **Page Object Model (POM)** design pattern for better structure, reusability, and maintainability.
+🔹Tools and Technologies
 
 
-## 🎯 Project Objective
-
-- Simulate real-world end-to-end QA workflows
-- Implement Page Object Model (POM) architecture
-- Improve test reliability and maintainability
-- Achieve high coverage of business-critical scenarios
-
-##  Key Features Covered
-
-### 🔐 Authentication Module
-- User registration
-- Valid login
-- Invalid login validation
-- Logout functionality
-
-### 🛍️ Product Module
-- Product listing validation
-- Product detail page verification
-- Category navigation
-- Sorting functionality
-
-### 🔎 Search Module
-- Valid product search
-- Invalid search handling
-- Empty search validation
-
-### 🛒 Cart Module
-- Add product to cart
-- Remove product from cart
-- Update product quantity
-- Cart persistence validation
-
-### 💳 Checkout Module
-- End-to-end checkout workflow validation
-- Address verification
-- Order confirmation validation
-
-### 📦 Orders Module
-- Order history validation
-- Order details verification
-
-### 👤 User Profile Module
-- Profile update functionality
-- Account information validation
-
-### 📬 Contact Module
-- Contact form submission
-- Form validation messages
+| Category        | Technology                      |
+| --------------- | ------------------------------- |
+| Language        | JavaScript (Node.js)            |
+| Automation      | Playwright                      |
+| Test Design     | Page Object Model (POM)         |
+| Test Runner     | Playwright Test Runner          |
+| Reporting       | HTML Reports and Allure Reports |
+| Version Control | Git and GitHub                  |
+| IDE             | Visual Studio Code              |
+| CI/CD           | GitHub Actions (optional)       |
 
 
-## 🧰 Tools & Technologies
+🔹Test Strategy
 
-- **Language:** JavaScript (Node.js)
-- **Automation Tool:** Playwright
-- **Design Pattern:** Page Object Model (POM)
-- **Test Runner:** Playwright Test Runner
-- **Reporting:** HTML Reports / Allure Reports
-- **Version Control:** Git & GitHub
-- **IDE:** Visual Studio Code
-- **CI/CD:** GitHub Actions (optional)
+1. Functional Testing
+2. UI Testing
+3. End-to-End Testing
+4. Regression Testing
+5. Negative and Edge Case Testing
+6. Cross-Browser Testing
 
+🔹Key Features Covered
 
-## 🧪 Test Strategy
-
-- Functional Testing
-- UI Testing
-- End-to-End Testing
-- Regression Testing
-- Negative Testing
-
-
-## 📊 Test Coverage Summary
-
-- ✅ 8+ Business Modules Automated  
-- ✅ 120+ Test Cases Implemented  
-- ✅ Positive & Negative Scenarios Covered  
-- ✅ Edge Case Validation  
-- ✅ Cross-Browser Testing Support  
+| Module         | Functional Areas Covered  | Example Validations                                         |
+| -------------- | ------------------------- | ----------------------------------------------------------- |
+| Authentication | Register, login, logout   | Valid and invalid login, field validation, session handling |
+| Product        | Catalog, details, sorting | Product information, categories, pagination, sorting checks |
+| Search         | Search functionality      | Valid search, no-result scenarios, empty search             |
+| Cart           | Cart operations           | Add and remove product, update quantity, persistence        |
+| Checkout       | Complete purchase flow    | Address selection, shipping, payment, confirmation          |
+| Orders         | Order history and details | Verify order list and order detail page                     |
+| User Profile   | Account management        | Profile edit and credential updates                         |
+| Contact        | Contact form              | Successful submission and validation errors                 |
 
 
-## 🏗 Framework Architecture
+🔹Test Coverage Summary
 
-- Page Object Model (POM)
-- Modular test structure
-- Reusable utility functions
-- Centralized configuration management
-- Data-driven testing (JSON)
-- Parallel test execution support
-- Clean separation of test layers
+1. Eight or more business modules automated.
+2. More than 120 test cases implemented.
+3. Positive and negative scenarios covered.
+4. Edge case validations included.
+5. Cross-browser testing supported.
 
+🔹Project Structure
 
-## 📁 Project Structure
-├── pages/
-├── tests/
-├── test-data/
-├── utils/
-├── config/
+Capstone-Playwright-Project
+│
+├── pages
+│   ├── LoginPage.js
+│   ├── RegisterPage.js
+│   ├── HomePage.js
+│   ├── ProductPage.js
+│   ├── CartPage.js
+│   ├── WishlistPage.js
+│   ├── CheckoutPage.js
+│   └── ProfilePage.js
+│
+├── tests
+│   ├── authentication.spec.js
+│   ├── productCatalogue.spec.js
+│   ├── search.spec.js
+│   ├── productDetails.spec.js
+│   ├── cart.spec.js
+│   ├── wishlist.spec.js
+│   ├── checkout.spec.js
+│   └── profile.spec.js
+│
+├── utils
+│   └── testData.js
+│
 ├── playwright.config.js
 ├── package.json
 └── README.md
 
-## ▶️ How to Run the Project
+🔹Execution Steps
 
 1. Install dependencies
 npm install
@@ -134,8 +101,8 @@ npm install
 2. Install Playwright browsers
 npx playwright install
 
-3. Run test cases
+3. Run the test suite
 npx playwright test
 
-4. Generate HTML report
+4. View the HTML report
 npx playwright show-report
