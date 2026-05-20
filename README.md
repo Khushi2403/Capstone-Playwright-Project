@@ -1,131 +1,85 @@
-🔹**Application Under Test**
+# CAPSTONE PROJECT – PLANNING DOCUMENT
 
-nopCommerce Demo Store
-https://demo.nopcommerce.com
+---
 
-This is a public e-commerce demo web application designed for end-to-end automation testing. It supports workflows such as authentication, product browsing, cart operations, checkout, order history, user profile management, and contact form interactions.
+## PROJECT OVERVIEW
 
-🔹**Project Overview**
+| Field | Details |
+|------|---------|
+| Website Under Test | https://demowebshop.tricentis.com/ |
+| Framework | Playwright v1.4x+ |
+| Language | JavaScript |
+| Runtime | Node.js |
+| Domain | E-Commerce (B2C) |
+| Design Pattern | Page Object Model (POM) |
+| Test Cases | 120+ (8 modules × 15 each) |
+| Reporting | Playwright HTML Report / Allure Report |
+| CI/CD | GitHub Actions / Jenkins (Headless Execution) |
+| AI Tools Used | ChatGPT, GitHub Copilot |
 
-This repository contains a scalable and maintainable test automation framework built using Playwright with JavaScript (Node.js). The framework follows the Page Object Model design pattern and simulates real-world QA automation practices with proper structure and modularity.
+---
 
-🔹**Project Objectives**
+## WHY DEMO WEB SHOP?
 
-1. Simulate real-world end-to-end QA scenarios.
-2. Implement a robust Page Object Model architecture.
-3. Improve test reliability and maintainability.
-4. Achieve high coverage of business-critical functionalities.
+| Reason | Explanation |
+|------|-------------|
+| Realistic E-Commerce Flow | Includes login, cart, checkout, wishlist, orders |
+| Industry Standard UI | Mimics production-level e-commerce applications |
+| Complex Scenarios | Supports guest vs registered user flows |
+| Feature Rich | Product filtering, sorting, payments, address management |
+| Ideal for Automation | Covers full end-to-end user journey |
 
-🔹**Tools and Technologies**
+---
 
+## SERVICES & TEST CASE BREAKDOWN (8 × 15 = 120 TEST CASES)
 
-| Category        | Technology                      |
-| --------------- | ------------------------------- |
-| Language        | JavaScript (Node.js)            |
-| Automation      | Playwright                      |
-| Test Design     | Page Object Model (POM)         |
-| Test Runner     | Playwright Test Runner          |
-| Reporting       | HTML Reports and Allure Reports |
-| Version Control | Git and GitHub                  |
-| IDE             | Visual Studio Code              |
-| CI/CD           | GitHub Actions (optional)       |
+| # | Service / Module | Key Test Scenarios | Test Cases |
+|--|------------------|--------------------|-----------|
+| 1 | Authentication | Login, logout, registration, invalid login, session validation, password rules, email validation, guest vs registered flow, redirection checks, empty fields, account lock simulation | 15 |
+| 2 | Product Catalog | Search product, filter by category, sort by price, product details validation, pagination, grid/list view, invalid search, breadcrumbs, out-of-stock handling, UI validation | 15 |
+| 3 | Shopping Cart | Add/remove items, update quantity, cart persistence, subtotal validation, apply coupon, gift card validation, empty cart handling, checkout redirect, tax calculation | 15 |
+| 4 | Wishlist & Compare | Add/remove wishlist items, move to cart, compare products, duplicate handling, empty state validation, sharing wishlist, attribute comparison | 15 |
+| 5 | User Profile | Update profile, email change, password change, order history, newsletter toggle, address validation, reward points, account settings validation | 15 |
+| 6 | Checkout Process | Guest checkout, registered checkout, billing/shipping flow, payment methods, order confirmation, invalid card handling, tax validation, order ID generation | 15 |
+| 7 | Customer Support | Contact form, validation checks, email format validation, currency switch, language change, footer links, newsletter subscription, responsive UI checks | 15 |
+| 8 | E2E & Network Mocking | Full purchase flow, API interception, network failure simulation, response mocking, timeout handling, trace viewer generation, performance validation | 15 |
 
+---
 
-🔹**Test Strategy**
+## IMPLEMENTATION MILESTONES
 
-| Type of Testing        | Description |
-|------------------------|-------------|
-| Functional Testing     | Validates application features against requirements |
-| UI Testing             | Ensures UI elements are visible, aligned, and working |
-| End-to-End Testing     | Validates complete user workflows from start to finish |
-| Regression Testing     | Ensures existing functionality is not broken after changes |
-| Negative Testing       | Validates system behavior for invalid inputs and actions |
-| Edge Case Testing      | Covers boundary conditions and unusual scenarios |
-| Cross-Browser Testing  | Ensures compatibility across Chromium, Firefox, and WebKit |
+| Milestone | Deliverable |
+|----------|-------------|
+| M1 – Setup & Configuration | Node.js project setup, Playwright installation, multi-browser config |
+| M2 – Framework Design (POM) | Page Object Model creation, reusable methods, locator strategy |
+| M3 – UI & Interaction Handling | Dropdowns, alerts, popups, tabs, hover actions |
+| M4 – Test Development (E2E Flows) | Full user journeys + assertions |
+| M5 – Reporting & CI/CD | HTML + Allure reports, GitHub Actions pipeline |
+| M6 – Advanced Features & Finalization | API mocking, network failure simulation, documentation |
 
-🔹**Key Features Covered**
+---
 
-| Module             | Functional Areas Covered                                          | Example Validations Performed                                                                          |
-| ------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Authentication     | Registration, Login, Logout, Session management                   | Valid and invalid login, field validations, remember me, session persistence, access control           |
-| Product Catalogue  | Categories, sub-categories, sorting, pagination, compare products | Product info visibility, sorting by price and name, breadcrumb navigation, grid and list view, filters |
-| Search             | Keyword search, category search, suggestions                      | Valid and invalid search, partial keywords, empty search, result persistence after refresh             |
-| Product Details    | Product information page, reviews, add to cart, add to wishlist   | Image, price, description, quantity selection, add to cart, add to wishlist                            |
-| Cart               | Cart operations, mini cart, coupon, quantity update               | Add and remove items, subtotal validation, cart persistence, move to wishlist                          |
-| Wishlist           | Wishlist management                                               | Add to wishlist, remove item, move to cart, persistence after login                                    |
-| Checkout (E2E)     | Complete order placement workflow                                 | Address validation, shipping and payment selection, order confirmation, terms validation               |
-| Orders and Profile | Order history, profile update, address book                       | Order details, invoice view, profile edit, password change, address management                         |
-| Customer Support   | Contact Us form                                                   | Form validations, successful submission, error messages                                                |
-| UI and Network     | UI element checks, API mocking                                    | Logo and menu visibility, layout checks, responsive view, API interception using route                 |
+## TEST STRATEGY
 
+- Functional Testing – Core feature validation  
+- UI Testing – UI & layout validation  
+- Regression Testing – Ensure stability after changes  
+- End-to-End Testing – Full user flows  
+- Negative Testing – Invalid inputs handling  
+- Cross Browser Testing – Chromium, Firefox, WebKit  
 
+---
 
-🔹**Test Coverage Summary**
+## DELIVERABLES
 
-| Category              | Coverage Details                                                                                                             |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Business Modules      | 8+ major modules automated including Authentication, Product, Search, Cart, Wishlist, Checkout, Orders, Profile, and Contact |
-| Test Case Coverage    | 120+ test cases covering all functional flows                                                                                |
-| Test Design Approach  | Includes positive, negative, and edge case scenarios                                                                         |
-| Validation Types      | Field validations, UI validations, functional validations, and data validations                                              |
-| Cross-Browser Testing | Execution supported across Chromium, Firefox, and WebKit using Playwright                                                    |
-| Advanced Scenarios    | Includes E2E workflows and API/network mocking scenarios                                                                     |
-| Framework Design      | Built using Page Object Model (POM) with modular and reusable components                                                     |
+- Automation Framework (Playwright POM-based)  
+- 120+ Test Cases  
+- Execution Reports (HTML + Allure)  
+- CI/CD Pipeline (GitHub Actions)  
+- Documentation (README + Planning Doc)  
 
+---
 
-🔹**Project Structure**
-```
-Capstone-Playwright-Project
-│
-├── pages
-│   ├── LoginPage.js
-│   ├── RegisterPage.js
-│   ├── HomePage.js
-│   ├── ProductCataloguePage.js
-│   ├── ProductDetailsPage.js
-│   ├── CartPage.js
-│   ├── WishlistPage.js
-│   ├── CheckoutPage.js
-│   ├── OrdersPage.js
-│   ├── ProfilePage.js
-│   └── ContactPage.js
-│
-├── tests
-│   ├── authentication.spec.js
-│   ├── productCatalogue.spec.js
-│   ├── productDetails.spec.js
-│   ├── search.spec.js
-│   ├── cart.spec.js
-│   ├── wishlist.spec.js
-│   ├── checkoutE2E.spec.js
-│   ├── orders.spec.js
-│   ├── profile.spec.js
-│   ├── contact.spec.js
-│   ├── uiValidation.spec.js
-│   └── networkMocking.spec.js
-│
-├── utils
-│   ├── testData.js
-│   └── helpers.js
-│
-├── playwright.config.js
-├── package.json
-└── README.md
-```
+## CONCLUSION
 
-🔹**Execution Steps**
-
-| Category             | Purpose                        | Command                                            |
-| -------------------- | ------------------------------ | -------------------------------------------------- |
-| Setup Project        | Initialize Playwright project  | `npm init playwright@latest`                       |
-| Install Dependencies | Install project packages       | `npm install`                                      |
-| Install Browsers     | Install Playwright browsers    | `npx playwright install`                           |
-| Run All Tests        | Execute full test suite        | `npx playwright test`                              |
-| UI Mode              | Run tests in interactive UI    | `npx playwright test --ui`                         |
-| Headed Mode          | Run tests with browser visible | `npx playwright test --headed`                     |
-| Run Specific File    | Execute single test file       | `npx playwright test tests/authentication.spec.js` |
-| HTML Report          | View execution report          | `npx playwright show-report`                       |
-
-
-
-
+This Capstone Project demonstrates a complete real-world automation testing framework for an e-commerce application. It ensures maximum test coverage, scalability, maintainability, and industry-level automation practices using Playwright.
