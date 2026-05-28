@@ -41,7 +41,7 @@ jobs:
  
     - name: Run Playwright Tests
       run: npm run test:ci -- --shard=${{ matrix.shard_index }}/3
-      continue-on-error: true
+      
  
     - name: Upload Allure Raw Results (Shard)
       if: always()
