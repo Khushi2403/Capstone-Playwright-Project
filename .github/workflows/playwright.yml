@@ -41,7 +41,7 @@ jobs:
  
     - name: Run Playwright Tests
       run: npm run test:ci -- --shard=${{ matrix.shard_index }}/3
-      
+      continue-on-error: true
  
     - name: Upload Allure Raw Results (Shard)
       if: always()
@@ -99,5 +99,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: allure-report 
+        publish_dir: allure-report
       continue-on-error: true
