@@ -20,7 +20,6 @@ permissions:
 jobs:
 
   test:
-    name: Playwright Tests
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -28,9 +27,6 @@ jobs:
       fail-fast: false
       matrix:
         shard_index: [1, 2, 3]
-
-    env:
-      CI: true
 
     steps:
 
@@ -53,21 +49,19 @@ jobs:
         run: npm run test:ci -- --shard=${{ matrix.shard_index }}/3
         continue-on-error: true
 
-      - name: Upload Allure Raw Results
+      - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results-shard-${{ matrix.shard_index }}
+          name: allure-results-${{ matrix.shard_index }}
           path: allure-results
           if-no-files-found: warn
-          retention-days: 14
+
 
   report:
-    name: Generate & Deploy Allure Report
     needs: test
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 30
 
     steps:
 
@@ -84,38 +78,34 @@ jobs:
         run: npm ci
 
       - name: Install Allure Commandline
-        run: npm install -g allure-commandline --save-dev
+        run: npm install -g allure-commandline
 
       - name: Download Allure Results
         uses: actions/download-artifact@v4
         with:
-          pattern: allure-results-shard-*
+          pattern: allure-results-*
           merge-multiple: true
           path: allure-results
 
       - name: Verify Allure Results
-        run: ls -la allure-results
+        run: ls -R allure-results
 
       - name: Generate Allure Report
         run: allure generate allure-results --clean -o allure-report
 
       - name: Verify Allure Report
-        run: ls -la allure-report
+        run: ls -R allure-report
 
-      - name: Upload Allure HTML Report
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: allure-report
           path: allure-report
-          if-no-files-found: warn
-          retention-days: 14
 
-      - name: Deploy Allure Report to GitHub Pages
-        if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'master')
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./allure-report
-          force_orphan: true

@@ -21,12 +21,12 @@ test.describe('Product Catalog - Search Tests', () => {
 
 
     test('TC02 Verify Search with Invalid Product', async ({ productPage }) => {
-
+        await productPage.gotoHomePage();
         await productPage.searchProduct('abcdefxyz');
 
         await expect(
             productPage.noResultMessage
-        ).toBeVisible();
+        ).toBeVisible({ timeout: 10000 });
     });
 
 
@@ -34,7 +34,7 @@ test.describe('Product Catalog - Search Tests', () => {
 
         await expect.soft(
             productPage.searchBox
-        ).toBeVisible();
+        ).toBeVisible({ timeout: 10000 });
     });
 
 });

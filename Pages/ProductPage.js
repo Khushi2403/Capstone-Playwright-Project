@@ -8,35 +8,35 @@ class ProductPage {
 
         this.searchButton = page.locator('input[value="Search"]');
 
-        this.productTitles = page.locator('.product-title');
+        this.productTitles = page.locator('.product-title a');
 
         this.sortDropdown = page.locator('#products-orderby');
 
-        this.productImage = page.locator('.picture img');
+        this.viewDropdown = page.locator('#products-viewmode');
 
-        this.addToCartButton = page.locator('input[value="Add to cart"]');
-
+        this.addToCartButton = page.locator('.product-essential .add-to-cart-button');
+        
         this.breadcrumb = page.locator('.breadcrumb');
 
-        this.nextPageButton = page.locator('.next-page');
+        this.nextPageButton = page.locator('.next-page a');
 
-        this.gridView = page.locator('.viewmode-icon.grid');
+        this.productGrid = page.locator('.product-grid');
 
-        this.listView = page.locator('.viewmode-icon.list');
+        this.productList = page.locator('.product-list');
+
+        this.productPrice = page.locator('.product-price');
+        
+        this.pageTitle = page.locator('.product-name h1');
 
         this.noResultMessage = page.locator('.result');
-
-        this.productPrice = page.locator('.prices');
-
-        this.compareButton = page.locator('.compare-products');
-
-        this.productDescription = page.locator('.full-description');
     }
 
 
     async gotoHomePage() {
 
-        await this.page.goto('https://demowebshop.tricentis.com/');
+        await this.page.goto(
+            'https://demowebshop.tricentis.com/'
+        );
     }
 
 
@@ -47,49 +47,68 @@ class ProductPage {
         await this.searchButton.click();
     }
 
- 
-   async openCategory(categoryName) {
+     async openCategory(categoryName) {
 
-    const category = this.page
-        .locator('.top-menu a[href="/' + categoryName + '"]')
-        .first();
+    await this.page.goto(
+        `https://demowebshop.tricentis.com/${categoryName}`
+    );
+}
+   
 
-    await category.waitFor({
+
+   async sortProducts(sortOption) {
+
+    await this.sortDropdown.waitFor({
         state: 'visible'
     });
 
-    await category.click();
+    await this.sortDropdown.selectOption({
+        label: sortOption
+    });
 }
 
+    async selectViewMode(mode) {
 
-    async sortProducts(sortOption) {
-
-        await this.sortDropdown.selectOption(sortOption);
+        await this.viewDropdown.selectOption(mode);
     }
-
 
     async openFirstProduct() {
 
-        await this.productTitles.first().click();
-    }
+    await this.productTitles.first().waitFor({
+        state: 'visible'
+    });
 
+    await this.productTitles.first().click();
+
+    await this.page.waitForLoadState('networkidle');
+}
+    
 
     async clickNextPage() {
 
-        await this.nextPageButton.click();
-    }
+    await this.nextPageButton.waitFor({
+        state: 'visible'
+    });
+
+    await this.nextPageButton.click();
+}
+    
+
+async switchToGridView() {
+
+    await this.viewDropdown.selectOption({
+        label: 'Grid'
+    });
+}
+
+async switchToListView() {
+
+    await this.viewDropdown.selectOption({
+        label: 'List'
+    });
+}
 
 
-    async switchToGridView() {
-
-        await this.gridView.click();
-    }
-
-
-    async switchToListView() {
-
-        await this.listView.click();
-    }
 }
 
 module.exports = ProductPage;

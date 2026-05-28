@@ -26,14 +26,18 @@ test.describe('Authentication - Logout Tests', () => {
     });
 
 
-    test('TC07 Verify Redirect After Logout', async ({ loginPage, page }) => {
+ test('TC07 Verify Redirect After Logout', async ({ loginPage, page }) => {
 
-        await loginPage.logout();
+    await loginPage.logout();
 
-        await expect(page).toHaveURL(
-            'https://demowebshop.tricentis.com/'
-        );
-    });
+    await page.waitForURL(
+        'https://demowebshop.tricentis.com/'
+    );
+
+    await expect(page).toHaveURL(
+        'https://demowebshop.tricentis.com/'
+    );
+});
 
 
  test('TC08 Verify Restricted Page Access After Logout', async ({ loginPage, page }) => {

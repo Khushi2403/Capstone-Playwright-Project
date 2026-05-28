@@ -8,6 +8,11 @@ const HomePage = require('../pages/HomePage');
 
 const ProductPage = require('../pages/ProductPage');
 
+const ShoppingCartPage = require('../pages/ShoppingCartPage');
+
+const CompareEmailPage = require('../pages/CompareEmailPage');
+
+const UserProfilePage = require('../pages/UserProfilePage');
 
 exports.test = base.test.extend({
 
@@ -31,7 +36,20 @@ exports.test = base.test.extend({
     productPage: async ({ page }, use) => {
 
         await use(new ProductPage(page));
-    }
+    },
+
+    shoppingCartPage: async ({ page }, use) => {
+        await use(new ShoppingCartPage(page));
+    },
+
+   compareEmailPage: async ({ page }, use) => {
+        await use(new CompareEmailPage(page));
+    },
+
+    userProfilePage: async ({ page }, use) => {
+
+    await use(new UserProfilePage(page));
+},
 });
 
 
