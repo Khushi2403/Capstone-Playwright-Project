@@ -82,7 +82,7 @@ jobs:
  
     - name: Generate Allure Report
       run: npm run allure:generate
-      continue-on-error: true
+      # continue-on-error: true
  
     - name: Upload Allure HTML Report
       if: always()
