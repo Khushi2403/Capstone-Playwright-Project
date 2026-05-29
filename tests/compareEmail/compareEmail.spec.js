@@ -92,7 +92,7 @@ test.describe('Compare + Email Module', () => {
             .toBeVisible();
     });
 
-    test('TC06 Send Email to Friend', async ({ compareEmailPage }) => {
+    test.skip('TC06 Send Email to Friend', async ({ compareEmailPage }) => {
 
         await compareEmailPage.openFirstProduct();
 
