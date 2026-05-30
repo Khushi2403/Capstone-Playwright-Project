@@ -30,9 +30,9 @@ test.describe('Authentication - Logout Tests', () => {
 
     await loginPage.logout();
 
-    await page.waitForURL(
-        'https://demowebshop.tricentis.com/'
-    );
+    // await page.waitForURL(
+    //     'https://demowebshop.tricentis.com/'
+    // );
 
     await expect(page).toHaveURL(
         'https://demowebshop.tricentis.com/'

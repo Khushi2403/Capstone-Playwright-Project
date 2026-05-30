@@ -22,7 +22,7 @@ class LoginPage {
     }
 
 
-    async gotoLoginPage() {
+     async gotoLoginPage() {
 
         await this.page.goto('https://demowebshop.tricentis.com/');
 
@@ -30,17 +30,25 @@ class LoginPage {
     }
 
 
+    // async login(email, password) {
+    //     await this.emailInput.fill(email);
+
+    //     await this.passwordInput.fill(password);
+
+    //      await Promise.all([
+    //     this.page.waitForLoadState('networkidle'),
+    //     this.loginButton.click()
+    //    ])
+    // }
+
+
     async login(email, password) {
+    await this.emailInput.fill(email);
+    await this.passwordInput.fill(password);
 
-        await this.emailInput.fill(email);
-
-        await this.passwordInput.fill(password);
-
-         await Promise.all([
-        this.page.waitForLoadState('networkidle'),
-        this.loginButton.click()
-    ])
-    }
+      await this.loginButton.click();
+    
+}
 
 
     async loginWithRememberMe(email, password) {
@@ -59,6 +67,7 @@ class LoginPage {
 
         await this.logoutLink.click();
     }
+
 
 
     async getErrorText() {

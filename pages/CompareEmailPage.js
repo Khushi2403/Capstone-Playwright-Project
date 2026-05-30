@@ -48,21 +48,35 @@ class CompareEmailPage {
         await this.page.waitForLoadState('networkidle');
     }
 
-   async openProductByIndex(index) {
+//    async openProductByIndex(index) {
 
-    await this.gotoHome();
+//     await this.gotoHome();
 
-    const productLinks = [
-        '14.1-inch Laptop',
-        'Build your own cheap computer',
-        'Build your own computer',
-        'Simple Computer'
+//     const productLinks = [
+//         '14.1-inch Laptop',
+//         'Build your own cheap computer',
+//         'Build your own computer',
+//         'Simple Computer'
+//     ];
+
+//     await this.page.locator('a')
+//         .filter({ hasText: productLinks[index] })
+//         .first()
+//         .click();
+
+//     await this.page.waitForLoadState('networkidle');
+// }
+
+async openProductByIndex(index) {
+
+    const productUrls = [
+        'https://demowebshop.tricentis.com/141-inch-laptop',
+        'https://demowebshop.tricentis.com/build-your-cheap-own-computer',
+        'https://demowebshop.tricentis.com/build-your-own-computer',
+        'https://demowebshop.tricentis.com/simple-computer'
     ];
 
-    await this.page.locator('a')
-        .filter({ hasText: productLinks[index] })
-        .first()
-        .click();
+    await this.page.goto(productUrls[index]);
 
     await this.page.waitForLoadState('networkidle');
 }

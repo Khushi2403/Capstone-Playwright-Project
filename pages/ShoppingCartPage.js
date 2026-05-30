@@ -4,7 +4,11 @@ class ShoppingCartPage {
 
         this.page = page;
 
-       
+        this.termsCheckbox = page.locator('#termsofservice');
+
+        this.checkoutButton = page.getByRole('button', {
+        name: 'Checkout'
+    });
         this.simpleProduct = page.locator(
             'a:has-text("Build your own cheap computer")'
         );
@@ -91,6 +95,13 @@ class ShoppingCartPage {
 
         await this.updateCartButton.click();
     }
+
+    async checkout() {
+
+    await this.termsCheckbox.check();
+
+    await this.checkoutButton.click();
+}
 }
 
 module.exports = ShoppingCartPage;

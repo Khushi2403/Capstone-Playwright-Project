@@ -1,48 +1,80 @@
+// pages/UserProfilePage.js
+
 class UserProfilePage {
-    constructor(page) {
-        this.page = page;
+  constructor(page) {
+    this.page = page;
 
-        this.profileLink = page.getByRole('link', { name: 'My account' });
+    // account / sidebar
+    this.myAccountLink = page.getByRole('link', { name: 'My account' });
+    this.ordersLink = page.locator('a[href="/customer/orders"]').last();
+    this.addressesLink = page.getByRole('link', { name: 'Addresses' }).last();
+    this.changePasswordLink = page.getByRole('link', { name: 'Change password' });
 
-        this.addressesLink = page.getByRole('link', { name: 'Addresses' }).first();
+    // profile fields
+    this.firstName = page.locator('#FirstName');
+    this.lastName = page.locator('#LastName');
+    this.email = page.locator('#Email');
 
-        this.ordersLink = page.getByRole('link', { name: 'Orders' }).first();
+    // buttons
+    this.saveButton = page.locator('input[value="Save"]');
 
+    // password fields
+    this.oldPassword = page.locator('#OldPassword');
+    this.newPassword = page.locator('#NewPassword');
+    this.confirmPassword = page.locator('#ConfirmNewPassword');
+    this.changePasswordButton = page.locator(
+      'input[value="Change password"]'
+    );
+  }
 
-        this.firstName = page.locator('#FirstName');
-        this.lastName = page.locator('#LastName');
-        this.email = page.locator('#Email');
+  async openMyAccount() {
+    await this.myAccountLink.waitFor({
+      state: 'visible',
+      timeout: 15000,
+    });
 
-        this.saveButton = page.getByRole('button', { name: 'Save' });
-      this.successMessage = page.locator('body');
-        
-    }
+    await this.myAccountLink.click();
 
-    async openProfile() {
-        await this.profileLink.click();
+    await this.email.waitFor({
+      state: 'visible',
+      timeout: 15000,
+    });
+  }
 
-        await this.page.waitForLoadState('domcontentloaded');
-    }
+  async openOrders() {
+    await this.ordersLink.click();
+    await this.page.waitForURL('**/customer/orders');
+  }
 
-    async openAddresses() {
-        await this.addressesLink.click();
-    }
+  async openAddresses() {
+    await this.addressesLink.click();
+    await this.page.waitForURL('**/customer/addresses');
+  }
 
-    async openOrders() {
-        await this.ordersLink.click();
-    }
+  async openChangePassword() {
+    await this.changePasswordLink.click();
 
-    async updateFirstName(name) {
-        await this.firstName.fill(name);
-    }
+    await this.oldPassword.waitFor({
+      state: 'visible',
+      timeout: 15000,
+    });
+  }
 
-    async updateLastName(name) {
-        await this.lastName.fill(name);
-    }
+  async updateProfile(first, last) {
+    await this.firstName.fill(first);
+    await this.lastName.fill(last);
 
-    async saveProfile() {
-        await this.saveButton.click();
-    }
+    await this.saveButton.click();
+  }
+
+ 
+  async changePasswordFlow(oldPwd, newPwd) {
+    await this.oldPassword.fill(oldPwd);
+    await this.newPassword.fill(newPwd);
+    await this.confirmPassword.fill(newPwd);
+
+    await this.changePasswordButton.click();
+  }
 }
 
 module.exports = UserProfilePage;
