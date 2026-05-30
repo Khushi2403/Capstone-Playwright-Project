@@ -40,11 +40,13 @@ class RegisterPage {
 
         if (gender.toLowerCase() === 'male') {
 
+            
             await this.genderMale.check();
 
         } else {
 
-            await this.genderFemale.check();
+       
+           await this.genderFemale.check();
         }
     }
 
