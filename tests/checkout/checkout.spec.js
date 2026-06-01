@@ -34,20 +34,6 @@ test.describe('Checkout Process', () => {
     ).toBeVisible();
   });
 
-//   test('TC04 Terms checkbox + checkout button FIXED', async ({ page }) => {
-//     await addProduct(page);
-
-//     await page.locator('.header-links .ico-cart').click();
-//     await page.waitForURL('**/cart');
-
-  
-//     await expect(page.locator('#termsofservice')).toBeVisible();
-
-//     await page.locator('#termsofservice').check();
-
-//     await expect(page.locator('button[name="checkout"]')).toBeVisible();
-//   });
-
 
 test('TC04 Terms checkbox + checkout button FIXED', async ({ page }) => {
 
@@ -61,7 +47,7 @@ test('TC04 Terms checkbox + checkout button FIXED', async ({ page }) => {
 
   await page.waitForURL('**/cart');
 
-  // ✔ safer check (NOT strict element dependency)
+ 
   const checkoutButton = page.locator('button[name="checkout"]');
 
   await expect(checkoutButton).toBeVisible({ timeout: 15000 });
@@ -75,26 +61,25 @@ test('TC05 Checkout flow FIXED STABLE', async ({ page }) => {
 
   await page.goto(BASE_URL);
 
-  // Add product
+
   await page.click('text=Books');
   await page.click('text=Computing and Internet');
 
   await page.locator('input[value="Add to cart"]').first().click();
 
-  // Wait until product is actually added
+  
   await expect(
     page.locator('.bar-notification.success')
   ).toContainText('The product has been added');
 
-  // Open cart
+  
   await page.getByRole('link', { name: /Shopping cart/ }).first().click();
 
   await page.waitForURL('**/cart');
 
-  // Accept terms
   await page.locator('#termsofservice').check();
 
-  // Checkout
+ 
   const checkoutButton = page.locator('button[name="checkout"]');
 
   await expect(checkoutButton).toBeVisible();
@@ -104,37 +89,6 @@ test('TC05 Checkout flow FIXED STABLE', async ({ page }) => {
   // Guest checkout redirects to login, logged-in user goes to checkout
   await expect(page).toHaveURL(/login|checkout/);
 });
-
- 
-//  test('TC05 Checkout flow FIXED STABLE', async ({ page }) => {
-
-//   await page.goto(BASE_URL);
-
-//   await page.click('text=Books');
-//   await page.click('text=Computing and Internet');
-//   await page.click('input[value="Add to cart"]');
-
-//   await page.getByRole('link', { name: /Shopping cart/ }).first().click();
-
-//   await page.waitForURL('**/cart');
-
-//   const checkoutButton = page.locator('button[name="checkout"]');
-
-//   await expect(checkoutButton).toBeVisible({ timeout: 15000 });
-
-//   // checkbox may load late → safe wait
-//   await page.waitForTimeout(1000);
-
-//   const checkbox = page.locator('#termsofservice');
-//   if (await checkbox.count() > 0) {
-//     await checkbox.check();
-//   }
-
-//   await checkoutButton.click();
-
-//   await expect(page).toHaveURL(/login|checkout|cart/);
-// });
-  
 
   test('TC06 Login page redirect', async ({ page }) => {
     await page.goto(`${BASE_URL}/login`);
@@ -187,7 +141,7 @@ test('TC05 Checkout flow FIXED STABLE', async ({ page }) => {
    test('TC15 Checkout URL FIXED', async ({ page }) => {
     await page.goto(`${BASE_URL}/cart`);
 
-    await expect(page.url()).toContain('cart'); // correct expected state
+    await expect(page.url()).toContain('cart'); 
   });
 
 });

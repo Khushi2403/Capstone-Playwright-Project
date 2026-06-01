@@ -8,12 +8,12 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
   });
 
-  // 1
+
   test('TC01 Home page loads successfully', async ({ page }) => {
     await expect(page.locator('#small-searchterms')).toBeVisible();
   });
 
-  // 2
+  
   test('TC02 Books API response interception', async ({ page }) => {
     await page.route('**/books', async route => {
       const response = await route.fetch();
@@ -25,7 +25,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await expect(page.locator('.product-item').first()).toBeVisible();
   });
 
-  // 3
+
   test('TC03 Mock product list response', async ({ page }) => {
     await page.route('**/books', route =>
       route.fulfill({
@@ -39,7 +39,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await expect(page.locator('body')).toBeVisible();
   });
 
-  // 4
+
   test('TC04 Verify network request for homepage resources', async ({ page }) => {
     const responses = [];
 
@@ -50,7 +50,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     expect(responses.length).toBeGreaterThan(0);
   });
 
-  // 5
+
   test('TC05 Abort image loading', async ({ page }) => {
     await page.route('**/*.{png,jpg,jpeg}', route => route.abort());
 
@@ -58,7 +58,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await expect(page.locator('body')).toBeVisible();
   });
 
-  // 6
+
   test('TC06 Simulate slow API response', async ({ page }) => {
     await page.route('**/books', async route => {
       await new Promise(res => setTimeout(res, 1500));
@@ -69,7 +69,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await expect(page.locator('body')).toBeVisible();
   });
 
-  // 7
+
   test('TC07 Block CSS files (network failure test)', async ({ page }) => {
     await page.route('**/*.css', route => route.abort());
 
@@ -77,7 +77,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await expect(page.locator('body')).toBeVisible();
   });
 
-  // 8
+  
   test('TC08 Modify response headers', async ({ page }) => {
     await page.route('**/books', route =>
       route.fulfill({
@@ -93,7 +93,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await expect(page.locator('text=Modified Response')).toBeVisible();
   });
 
-  // 9
+
   test('TC09 Validate request URL contains books', async ({ page }) => {
     await page.route('**/books', route => {
       expect(route.request().url()).toContain('books');
@@ -103,7 +103,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await page.click('text=Books');
   });
 
-  // 10
+ 
   test('TC10 Network failure handling', async ({ page }) => {
     await page.route('**/*', route => route.abort());
 
@@ -111,7 +111,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     expect(true).toBeTruthy();
   });
 
-  // 11
+ 
   test('TC11 API request monitoring', async ({ page }) => {
     let apiCalled = false;
 
@@ -123,7 +123,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     expect(apiCalled).toBeTruthy();
   });
 
-  // 12
+ 
   test('TC12 Response status validation', async ({ page }) => {
     await page.route('**/books', async route => {
       const response = await route.fetch();
@@ -134,7 +134,7 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
     await page.goto(`${BASE_URL}/books`);
   });
 
-  // 13
+ 
  test('TC13 Simulate empty response safely', async ({ page }) => {
 
   await page.route('**/books**', route =>
@@ -151,14 +151,14 @@ test.describe('E2E + Network Mocking - CAPSTONE NETWORK SUITE (15 TC)', () => {
   expect(content?.trim().length).toBe(0);
 });
 
-  // 14
+ 
   test('TC14 Page load performance check', async ({ page }) => {
     const start = Date.now();
     await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
     expect(Date.now() - start).toBeLessThan(8000);
   });
 
-  // 15
+
  test('TC15 UI stability under network conditions', async ({ page }) => {
 
   await page.route('**/*.css', route => route.continue());

@@ -31,17 +31,17 @@
 
 ---
 
-## SERVICES & TEST CASE BREAKDOWN (8 × 15 = 120 TEST CASES)
+## SERVICES & TEST CASE BREAKDOWN 
 
 | # | Service / Module | Key Test Scenarios | Test Cases |
 |--|------------------|--------------------|-----------|
-| 1 | Authentication | Login, logout, registration, invalid login, session validation, password rules, email validation, guest vs registered flow, redirection checks, empty fields, account lock simulation | 15 |
-| 2 | Product Catalog | Search product, filter by category, sort by price, product details validation, pagination, grid/list view, invalid search, breadcrumbs, out-of-stock handling, UI validation | 15 |
+| 1 | Authentication | Login, logout, registration, invalid login, session validation, password rules, email validation, guest vs registered flow, redirection checks, empty fields, account lock simulation | 18 |
+| 2 | Product Catalog | Search product, filter by category, sort by price, product details validation, pagination, grid/list view, invalid search, breadcrumbs, out-of-stock handling, UI validation | 18 |
 | 3 | Shopping Cart | Add/remove items, update quantity, cart persistence, subtotal validation, apply coupon, gift card validation, empty cart handling, checkout redirect, tax calculation | 15 |
-| 4 | Wishlist & Compare | Add/remove wishlist items, move to cart, compare products, duplicate handling, empty state validation, sharing wishlist, attribute comparison | 15 |
+| 4 | Compare & Email| Send Email to Friend , move to cart, compare products, duplicate handling, empty state validation, sharing product, attribute comparison | 6 |
 | 5 | User Profile | Update profile, email change, password change, order history, newsletter toggle, address validation, reward points, account settings validation | 15 |
 | 6 | Checkout Process | Guest checkout, registered checkout, billing/shipping flow, payment methods, order confirmation, invalid card handling, tax validation, order ID generation | 15 |
-| 7 | Customer Support | Contact form, validation checks, email format validation, currency switch, language change, footer links, newsletter subscription, responsive UI checks | 15 |
+| 7 | Customer Support | Contact form, validation checks, email format validation, currency switch, language change, footer links, newsletter subscription, responsive UI checks | 20|
 | 8 | E2E & Network Mocking | Full purchase flow, API interception, network failure simulation, response mocking, timeout handling, trace viewer generation, performance validation | 15 |
 
 ---

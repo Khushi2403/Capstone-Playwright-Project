@@ -64,7 +64,7 @@ test.describe('Authentication - Login Tests', () => {
 
     await page.goto('https://demowebshop.tricentis.com/login');
 
-    // Copy-Paste Email
+   
     await page.locator('#Email').fill(userData.validUser.email);
 
     await page.locator('#Email').press('Control+A');
@@ -75,7 +75,7 @@ test.describe('Authentication - Login Tests', () => {
 
     await page.locator('#Email').press('Control+V');
 
-    // Copy-Paste Password
+    
     await page.locator('#Password').fill(userData.validUser.password);
 
     await page.locator('#Password').press('Control+A');

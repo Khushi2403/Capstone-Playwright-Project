@@ -29,11 +29,6 @@ test.describe('Authentication - Logout Tests', () => {
  test('TC07 Verify Redirect After Logout', async ({ loginPage, page }) => {
 
     await loginPage.logout();
-
-    // await page.waitForURL(
-    //     'https://demowebshop.tricentis.com/'
-    // );
-
     await expect(page).toHaveURL(
         'https://demowebshop.tricentis.com/'
     );

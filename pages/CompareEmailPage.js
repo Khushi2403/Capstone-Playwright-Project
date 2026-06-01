@@ -8,7 +8,7 @@ class CompareEmailPage {
             .locator('.product-item h2 a')
             .filter({ hasNotText: 'Gift Card' });
 
-        // FIXED SELECTORS
+        
         this.addToCompareBtn = page.locator('.add-to-compare-list-button').first();
 
         this.compareTable = page.locator('.compare-products-table');
@@ -48,24 +48,6 @@ class CompareEmailPage {
         await this.page.waitForLoadState('networkidle');
     }
 
-//    async openProductByIndex(index) {
-
-//     await this.gotoHome();
-
-//     const productLinks = [
-//         '14.1-inch Laptop',
-//         'Build your own cheap computer',
-//         'Build your own computer',
-//         'Simple Computer'
-//     ];
-
-//     await this.page.locator('a')
-//         .filter({ hasText: productLinks[index] })
-//         .first()
-//         .click();
-
-//     await this.page.waitForLoadState('networkidle');
-// }
 
 async openProductByIndex(index) {
 

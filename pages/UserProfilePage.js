@@ -4,21 +4,21 @@ class UserProfilePage {
   constructor(page) {
     this.page = page;
 
-    // account / sidebar
+   
     this.myAccountLink = page.getByRole('link', { name: 'My account' });
     this.ordersLink = page.locator('a[href="/customer/orders"]').last();
     this.addressesLink = page.getByRole('link', { name: 'Addresses' }).last();
     this.changePasswordLink = page.getByRole('link', { name: 'Change password' });
 
-    // profile fields
+  
     this.firstName = page.locator('#FirstName');
     this.lastName = page.locator('#LastName');
     this.email = page.locator('#Email');
 
-    // buttons
+  
     this.saveButton = page.locator('input[value="Save"]');
 
-    // password fields
+  
     this.oldPassword = page.locator('#OldPassword');
     this.newPassword = page.locator('#NewPassword');
     this.confirmPassword = page.locator('#ConfirmNewPassword');
