@@ -17,6 +17,8 @@ class CompareEmailPage {
 
         this.noCompareMsg = page.locator('body');
 
+
+        
         this.emailFriendBtn = page.locator('.email-a-friend-button');
 
         this.friendEmail = page.locator('#FriendEmail');

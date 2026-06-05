@@ -46,7 +46,6 @@ test.describe('Compare + Email Module', () => {
     await compareEmailPage.openFirstProduct();
 
     await compareEmailPage.addToCompare();
-
     await compareEmailPage.openComparePage();
 
     await expect(compareEmailPage.compareTable)
